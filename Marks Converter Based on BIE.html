@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marks Converter</title>
+    <link
+      rel="shortcut icon"
+      href="https://w7.pngwing.com/pngs/474/1016/png-transparent-computer-icons-data-conversion-religious-conversion-concert-miscellaneous-trademark-logo-thumbnail.png"
+      type="image/x-icon"
+    />
+  </head>
+  <script>
+    var marks;
+    var Percentage;
+    function calculate() {
+      marks = document.getElementById("marks").value;
+      Percentage = (marks / 1000) * 100;
+      document.getElementById("percent").value = Percentage.toFixed(0) + "%";
+      document.getElementById("cgpa").value = (Percentage + 3) / 10;
+      if (marks == "") {
+        alert("Please Enter Your Marks");
+        document.getElementById("percent").value = "";
+        document.getElementById("cgpa").value = "";
+      }
+      var cgpa;
+      switch (Math.floor((Percentage + 3) / 10)) {
+        case 10:
+        case 9:
+        case 8:
+          cgpa = "A+ Outstanding";
+          break;
+        case 7:
+          cgpa = " 'A' Distinction";
+          break;
+        case 6:
+          cgpa = " 'B+' First Class";
+          break;
+        case 5:
+          cgpa = "'B' Second Class";
+          break;
+        case 4:
+          cgpa = "'C' Pass Class";
+          break;
+        case 3:
+          cgpa = "Fail";
+          break;
+        case 2:
+          cgpa = "Fail";
+          break;
+        default:
+          cgpa: "";
+          break;
+      }
+      document.getElementById("grade").value = cgpa;
+
+      if (marks > 1000) {
+        alert("INVALID ESSENTIALS");
+        document.getElementById("marks").value = " ";
+        document.getElementById("percent").value = "";
+        document.getElementById("cgpa").value = "NaN";
+      }
+    }
+    function reset() {
+      document.getElementById("marks").value = " ";
+      document.getElementById("percent").value = " ";
+      document.getElementById("cgpa").value = " ";
+    }
+  </script>
+
+  <body>
+    <header>
+      <h1 align="center">Marks Converter to Get Percentage/CGPA/Grade</h1>
+      <h2 align="center">(Only for Board of Intermediate)</h2>
+    </header>
+    <hr />
+    <section>
+      <form action="form" align="center" class="kbk">
+        <caption>
+          <h1 id="h1">Marks Converter</h1>
+        </caption>
+        <div>
+          Enter Marks:
+          <input id="marks" type="text" placeholder=" out of 1000" required />
+        </div>
+        <br />
+        <br />
+        <div>
+          Your Percentage is:
+          <input id="percent" type="text" placeholder="" />
+        </div>
+        <br />
+        <br />
+        <div>
+          your C.G.P.A is:
+          <input type="text" placeholder="C.G.P.A" id="cgpa" />
+        </div>
+        <br />
+        <br />
+        <div>
+          Grade:
+          <input type="text" placeholder="G R A D E" id="grade" />
+        </div>
+        <br />
+        <br />
+        <div class="class" align="center">
+          <input type="button" value="submit" onclick="calculate()" />
+          <input type="button" value="clear" onclick="reset()" />
+        </div>
+      </form>
+    </section>
+    <hr />
+    <br />
+    <br />
+    <footer>
+      <h5 align="center">
+        This page Converts Marks to get Percentage/CGPA/Grade
+      </h5>
+      <h5 align="center">Contact: abcd1231@gmail.com</h5>
+    </footer>
+  </body>
+  <style>
+    body {
+      background: whitesmoke;
+      color: red;
+    }
+    h2 {
+      color: brown;
+    }
+    .kbk {
+      background: wheat;
+      color: black;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    #h1 {
+      background-color: rgb(102, 102, 221);
+      color: white;
+    }
+    footer {
+      background-color: grey;
+      color: white;
+    }
+    .class {
+      background-color: goldenrod;
+    }
+  </style>
+</html>
